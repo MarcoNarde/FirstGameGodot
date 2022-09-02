@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://art/playerRed_up1.png" type="Texture" id=1]
+[ext_resource path="res://art/playerGrey_up1.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://art/playerGrey_up2.png" type="Texture" id=4]
+[ext_resource path="res://art/playerRed_up2.png" type="Texture" id=5]
+[ext_resource path="res://MenuChooseSkin.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="MenuChooseSkin" type="CanvasLayer"]
+script = ExtResource( 6 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.0
+margin_top = -104.0
+margin_right = 216.0
+margin_bottom = 88.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+margin_right = 432.0
+margin_bottom = 192.0
+color = Color( 0, 0.141176, 0.627451, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+margin_right = 432.0
+margin_bottom = 192.0
+alignment = 1
+
+[node name="PlayerGrey" type="TextureButton" parent="Panel/HBoxContainer"]
+margin_left = 53.0
+margin_right = 161.0
+margin_bottom = 192.0
+size_flags_horizontal = 6
+size_flags_vertical = 5
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/PlayerGrey"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -39.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 1 )
+text = "Grey"
+align = 1
+valign = 1
+
+[node name="PlayerRed" type="TextureButton" parent="Panel/HBoxContainer"]
+margin_left = 271.0
+margin_right = 379.0
+margin_bottom = 192.0
+size_flags_horizontal = 6
+size_flags_vertical = 5
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/PlayerRed"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -39.0
+custom_fonts/font = SubResource( 1 )
+text = "Red"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Panel/HBoxContainer/PlayerGrey" to="." method="_on_PlayerGrey_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/PlayerRed" to="." method="_on_PlayerRed_pressed"]
